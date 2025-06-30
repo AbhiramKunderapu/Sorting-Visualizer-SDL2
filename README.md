@@ -9,13 +9,19 @@ A desktop application to visualize sorting algorithms using SDL2 and C++.
 - Object-oriented design for easy extension
 
 ## Build Instructions
-1. **Install SDL2 development libraries** for MinGW (32-bit) from [SDL2 Downloads](https://www.libsdl.org/download-2.0.php).
-2. **Extract** the SDL2 package and note the `include` and `lib` paths (e.g., `SDL2-2.28.5/i686-w64-mingw32/include` and `SDL2-2.28.5/i686-w64-mingw32/lib`).
-3. **Compile** with:
-   ```sh
-   g++ sorting-visualiser-oops.cpp -I"SDL2-2.28.5/i686-w64-mingw32/include" -L"SDL2-2.28.5/i686-w64-mingw32/lib" -lSDL2main -lSDL2 -o sorting-visualiser.exe
-   ```
-4. **Copy** `SDL2.dll` from `SDL2-2.28.5/i686-w64-mingw32/bin/SDL2.dll` to your project directory (next to the `.exe`).
+1. **Install SDL2 development libraries** for MinGW (32-bit or 64-bit) from [SDL2 Downloads](https://www.libsdl.org/download-2.0.php).
+2. **Extract** the SDL2 package and note the `include` and `lib` paths (e.g., `SDL2-2.28.5/i686-w64-mingw32/include` and `SDL2-2.28.5/i686-w64-mingw32/lib` for 32-bit, or `SDL2-2.28.5/x86_64-w64-mingw32/include` and `SDL2-2.28.5/x86_64-w64-mingw32/lib` for 64-bit).
+3. **Compile the project:**
+
+   - **For 32-bit builds:**
+     ```sh
+     g++ sorting-visualiser-oops.cpp -I"SDL2-2.28.5/i686-w64-mingw32/include" -L"SDL2-2.28.5/i686-w64-mingw32/lib" -lSDL2main -lSDL2 -o sorting-visualiser.exe
+     ```
+   - **For 64-bit builds:**
+     ```sh
+     g++ sorting-visualiser-oops.cpp -I"SDL2-2.28.5/x86_64-w64-mingw32/include" -L"SDL2-2.28.5/x86_64-w64-mingw32/lib" -lmingw32 -lSDL2main -lSDL2 -mwindows -o sorting-visualiser.exe
+     ```
+4. **Copy** `SDL2.dll` from the appropriate SDL2 `bin` directory (e.g., `SDL2-2.28.5/x86_64-w64-mingw32/bin/SDL2.dll` or `SDL2-2.28.5/i686-w64-mingw32/bin/SDL2.dll`) to your project directory (next to the `.exe`).
 5. **Run** the program:
    ```sh
    ./sorting-visualiser.exe
